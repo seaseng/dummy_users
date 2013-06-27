@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Please Login</h1>
+  <h3>(Don't Steal My Stuff)</h3>
+
+  
+  <% if @logged_in == false %>
+    <h2>Login failed tried again.</h2>
+  <% end %>
+  <form name="login" action= "/login" method="POST">
+    <h3 align='center'>Login</h3>
+    <div class='user_info' align='center' >
+      <p>Email</p>
+      <input type='text' name='email'>
+      <p>Password</p>
+      <input type='text' name='password'>
+      
+      <br>
+      <br>
+
+      <input type="submit" value="Login">
+
+    </div>
+  </form>
+  
+</div>

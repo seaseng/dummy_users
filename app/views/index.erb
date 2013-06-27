@@ -1,23 +1,51 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Welcome to the playhouse!</h1>
+  <h2>Time to get <em>naughty</em>.</h2>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+  <% if (!current_user && !@logged_in)  %>
+    <h2>You need to login!!!</h2>
+  <% end %>
+
+  <% if @password_match == false %>
+    <h2>Your passwords did not match dipshit.</h2>
+  <% end %>
+
+  <form name="new_user" action= "/new_user" method="POST">
+    <h3 align='center'>Create a New User</h3>
+    <div class='user_info' align='center' >
+      <p>Email</p>
+      <input type='email' name='email'>
+      <p>Password</p>
+      <input type='password' name='password'>
+      <p>Confirm Password</p>
+      <input type='password' name='password_confirmation'>
+      <p>Your Name</p>
+      <input type='text' name='name'>
+      
+
+      <br>
+      <br>
+
+      <input type="submit" value="Create New User">
+    </div>
+  </form>
+
+  <h2 align='center'>OR</h2>
+
+  <form name="login" action= "/login" method="POST">
+    <h3 align='center'>Login</h3>
+    <div class='user_info' align='center' >
+      <p>Email</p>
+      <input type='text' name='email'>
+      <p>Password</p>
+      <input type='password' name='password'>
+      
+      <br>
+      <br>
+
+      <input type="submit" value="Login">
+    </div>
+  </form>
+  
+  
 </div>

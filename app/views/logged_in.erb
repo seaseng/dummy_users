@@ -1,0 +1,15 @@
+<div class="container">
+  <h2>Special Secrete Page for the Beautiful People</h2>
+  <p>Here is your email:</p>
+    <p><%= current_user.email %></p>
+  <p>Here is your password:</p>
+    <p><%= current_user.password %></p>
+
+  <form name="logout" action= "/logout" method="POST">
+    <div class='user_logout' align='center'>
+      <input type="submit" value="Logout">
+    </div>
+  </form>
+  
+  
+</div>
